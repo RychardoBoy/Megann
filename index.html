@@ -1,0 +1,110 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html><html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Love</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Pacifico', cursive;
+  overflow-x: hidden;
+}
+section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#playMusicBtn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background: rgba(255, 105, 180, 0.8);
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+#playMusicBtn:hover {
+  background: rgba(255, 20, 147, 0.9);
+}
+#page1 { background-image: url('https://i.imgur.com/Jvdg7l7.png'); }
+#page2 { background-image: url('https://i.imgur.com/87VRNbo.png'); }
+#page3 { background-image: url('https://i.imgur.com/haDSFRu.png'); }
+#page4 { background-image: url('https://i.imgur.com/PjOsWNg.png'); }
+#page5 { background-image: url('https://i.imgur.com/ZAjDrxE.png'); }
+#page6 { background-image: url('https://i.imgur.com/87G43vW.png'); }
+#page7 { background-image: url('https://i.imgur.com/tSVU1tH.png'); display: flex; justify-content: center; align-items: center; }
+.form-box {
+  background-color: rgba(255,255,255,0.75);
+  padding: 30px;
+  max-width: 400px;
+  border-radius: 16px;
+}
+.form-box h2 {
+  text-align: center;
+  color: #e91e63;
+}
+.form-box p {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.form-box textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.form-box button {
+  margin-top: 10px;
+  background: #e91e63;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Tombol Play Music -->
+  <button id="playMusicBtn" onclick="playMusic()">Play Music</button>  <!-- Halaman Scroll -->  <section id="page1"></section>
+  <section id="page2"></section>
+  <section id="page3"></section>
+  <section id="page4"></section>
+  <section id="page5"></section>
+  <section id="page6"></section>
+  <section id="page7">
+    <div class="form-box">
+      <h2>Aku ingin tahu isi hatimu</h2>
+      <p>Tulis aja disini, aku akan mendengarkannya dengan penuh cinta.</p>
+      <form action="https://formspree.io/f/mblgzplv" method="POST">
+        <textarea name="message" placeholder="Tulis pesanmu disini..." required rows="5"></textarea>
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>  <script>
+    let audio;
+    function playMusic() {
+      if (!audio) {
+        audio = new Audio("https://raw.githubusercontent.com/RychardoBoy/music-chfwy/main/cant-help-falling-in-love.mp3");
+        audio.loop = true;
+        audio.volume = 0.3;
+      }
+      audio.play().then(() => {
+        document.getElementById('playMusicBtn').style.display = 'none';
+      }).catch(() => {
+        alert("Aktifkan suara dan klik ulang tombol ya!");
+      });
+    }
+  </script></body>
+</html>
